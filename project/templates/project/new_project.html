@@ -1,0 +1,26 @@
+
+{% extends "base.html" %}
+{% load bootstrap3 %}
+{% block title %}New Project{% endblock %}
+{% block content %}
+    <div class="jumbotron">
+        <h1>新增專案</h1>
+
+        <div class="row kpx_row-sm-offset-3">
+            <div class="col-xs-12 col-sm-6">
+                <form class="kpx_newProjectForm" action="" autocomplete="off" method="POST" role="form">
+                    {% csrf_token %}
+                    {% bootstrap_form project_form %}
+                    <input type="hidden" name="next" value="{{ next }}"/>
+                    <hr/>
+                    {% buttons %}
+                        <button type="submit" class="btn btn-lg btn-outline-primary btn-block"><i
+                                class="fa fa-sign-in"></i>
+                            送出
+                        </button>
+                    {% endbuttons %}
+                </form>
+            </div>
+        </div>
+    </div>
+{% endblock %}
